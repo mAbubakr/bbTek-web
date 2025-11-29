@@ -1,5 +1,15 @@
 {
-  "devDependencies": {
-    "wrangler": "^4.50.0"
-  }
+	"name": "wandering-tree-a57d",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"cf-typegen": "wrangler types"
+	},
+	"devDependencies": {
+		"typescript": "^5.5.2",
+		"wrangler": "^4.50.0"
+	}
 }
