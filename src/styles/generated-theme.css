@@ -6,24 +6,24 @@
 
 @theme {
   /* === Colors === */
-  --color-primary: #121212;
+  --color-primary: #2563eb;
   --color-body: #fff;
-  --color-border: #eaeaea;
-  --color-light: #f6f6f6;
-  --color-dark: #040404;
-  --color-text: #444444;
-  --color-text-dark: #040404;
-  --color-text-light: #717171;
+  --color-border: #dbeafe;
+  --color-light: #eff6ff;
+  --color-dark: #1e40af;
+  --color-text: #1e3a8a;
+  --color-text-dark: #1e40af;
+  --color-text-light: #64748b;
 
   /* === Darkmode Colors === */
-  --color-darkmode-primary: #fff;
-  --color-darkmode-body: #1c1c1c;
-  --color-darkmode-border: #3E3E3E;
-  --color-darkmode-light: #222222;
-  --color-darkmode-dark: #fff;
-  --color-darkmode-text: #B4AFB6;
-  --color-darkmode-text-dark: #fff;
-  --color-darkmode-text-light: #B4AFB6;
+  --color-darkmode-primary: #60a5fa;
+  --color-darkmode-body: #0f172a;
+  --color-darkmode-border: #1e3a8a;
+  --color-darkmode-light: #1e293b;
+  --color-darkmode-dark: #93c5fd;
+  --color-darkmode-text: #cbd5e1;
+  --color-darkmode-text-dark: #f1f5f9;
+  --color-darkmode-text-light: #94a3b8;
 
   /* === Font Families === */
   --font-primary: Heebo, sans-serif;
