@@ -1,0 +1,72 @@
+<svg width="520" height="480" viewBox="0 0 520 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="520" height="480" fill="#F3F4F6" rx="12"/>
+  
+  <!-- Code Brackets -->
+  <g transform="translate(100, 80)" font-family="monospace" font-size="48" font-weight="bold" fill="#3B82F6">
+    <text x="0" y="60">{</text>
+    <text x="200" y="60">}</text>
+  </g>
+  
+  <!-- Code Lines -->
+  <g transform="translate(120, 150)" font-family="monospace" font-size="16" fill="#1F2937">
+    <text x="0" y="0">function</text>
+    <text x="0" y="30">const</text>
+    <text x="0" y="60">import</text>
+    <text x="0" y="90">export</text>
+  </g>
+  
+  <!-- Laptop -->
+  <g transform="translate(200, 200)">
+    <!-- Screen -->
+    <rect x="0" y="0" width="200" height="140" fill="#1F2937" rx="8"/>
+    <rect x="10" y="10" width="180" height="100" fill="#111827"/>
+    <!-- Code on screen -->
+    <g font-family="monospace" font-size="12" fill="#10B981">
+      <text x="20" y="30">const app = () =&gt; {</text>
+      <text x="20" y="50">  return &lt;div&gt;Hello&lt;/div&gt;</text>
+      <text x="20" y="70">}</text>
+    </g>
+    <!-- Base -->
+    <rect x="0" y="140" width="200" height="12" fill="#374151" rx="4"/>
+    <rect x="80" y="152" width="40" height="4" fill="#4B5563" rx="2"/>
+  </g>
+  
+  <!-- Mobile Device -->
+  <g transform="translate(320, 250)">
+    <rect x="0" y="0" width="80" height="140" fill="#1F2937" rx="12"/>
+    <rect x="5" y="5" width="70" height="100" fill="#111827" rx="8"/>
+    <!-- App interface -->
+    <rect x="15" y="15" width="50" height="8" fill="#3B82F6" rx="4"/>
+    <rect x="15" y="30" width="50" height="6" fill="#6B7280" rx="3"/>
+    <rect x="15" y="42" width="50" height="6" fill="#6B7280" rx="3"/>
+    <circle cx="40" cy="120" r="8" fill="#10B981"/>
+  </g>
+  
+  <!-- Gear/Settings Icon -->
+  <g transform="translate(80, 300)">
+    <circle cx="50" cy="50" r="35" fill="#8B5CF6" opacity="0.2"/>
+    <circle cx="50" cy="50" r="25" stroke="#8B5CF6" stroke-width="4" fill="none"/>
+    <circle cx="50" cy="50" r="8" fill="#8B5CF6"/>
+    <!-- Gear teeth -->
+    <rect x="45" y="20" width="10" height="8" fill="#8B5CF6" rx="2"/>
+    <rect x="45" y="72" width="10" height="8" fill="#8B5CF6" rx="2"/>
+    <rect x="20" y="45" width="8" height="10" fill="#8B5CF6" rx="2"/>
+    <rect x="72" y="45" width="8" height="10" fill="#8B5CF6" rx="2"/>
+  </g>
+  
+  <!-- Database/Server -->
+  <g transform="translate(300, 320)">
+    <ellipse cx="60" cy="20" rx="50" ry="15" fill="#6366F1" opacity="0.3"/>
+    <rect x="10" y="20" width="100" height="60" fill="#6366F1" opacity="0.3"/>
+    <ellipse cx="60" cy="80" rx="50" ry="15" fill="#6366F1"/>
+    <!-- Data lines -->
+    <line x1="30" y1="35" x2="90" y2="35" stroke="#6366F1" stroke-width="2"/>
+    <line x1="30" y1="50" x2="90" y2="50" stroke="#6366F1" stroke-width="2"/>
+    <line x1="30" y1="65" x2="90" y2="65" stroke="#6366F1" stroke-width="2"/>
+  </g>
+  
+  <!-- Text/Title -->
+  <text x="260" y="450" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1F2937" text-anchor="middle">Custom Development</text>
+</svg>
+

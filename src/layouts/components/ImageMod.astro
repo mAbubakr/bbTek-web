@@ -18,23 +18,38 @@ interface Props {
 // Destructuring Astro.props to get the component's props
 let { src, alt, width, height, loading, decoding, class: className, format, style } = Astro.props;
 
-src = `/public${src}`;
+// Check if the source is an SVG
+const isSvg = src.toLowerCase().endsWith('.svg');
 
-// Glob pattern to load images from the /public/images folder
+// For SVGs, use the public path directly
+const publicSrc = src.startsWith('/') ? src : `/${src}`;
+
+// For non-SVG images, use the glob pattern
+const originalSrc = `/public${src}`;
 const images = import.meta.glob("/public/images/**/*.{jpeg,jpg,png,gif,svg}");
-
-// Check if the source path is valid
-const isValidPath = images[src] ? true : false;
+const isValidPath = isSvg ? true : (images[originalSrc] ? true : false);
 
 // Log a warning message in red if the image is not found
 !isValidPath &&
-  console.error(`\x1b[31mImage not found - ${src}.\x1b[0m Make sure the image is in the /public/images folder.`);
+  !isSvg &&
+  console.error(`\x1b[31mImage not found - ${originalSrc}.\x1b[0m Make sure the image is in the /public/images folder.`);
 ---
 
 {
-  isValidPath && (
+  isSvg ? (
+    <img
+      src={publicSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading || "lazy"}
+      decoding={decoding || "async"}
+      class={className}
+      style={style}
+    />
+  ) : isValidPath ? (
     <Image
-      src={images[src]() as Promise<{ default: ImageMetadata }>}
+      src={images[originalSrc]() as Promise<{ default: ImageMetadata }>}
       alt={alt}
       width={width}
       height={height}
@@ -44,5 +59,5 @@ const isValidPath = images[src] ? true : false;
       format={format}
       style={style}
     />
-  )
+  ) : null
 }

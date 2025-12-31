@@ -2,52 +2,57 @@
 # Banner
 banner:
   title: "BBTek"
-  content: "For all your technical needs"
+  content: "Your trusted partner for comprehensive technical solutions. We provide expert tutoring, professional training, network installations, security systems, and custom development services."
   image: "/images/banner.png"
   button:
-    enable: false
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/astroplate"
+    enable: true
+    label: "Contact Us"
+    link: "/contact"
 
 # Features
 features:
-  - title: "What's Included in Astroplate"
-    image: "/images/service-1.png"
-    content: "Astroplate is a comprehensive starter template that includes everything you need to get started with your Astro project. What's Included in Astroplate"
+  - title: "Education & Training Services"
+    image: "/images/service-1.svg"
+    content: "BBTek offers comprehensive tutoring and professional training services to help individuals and teams excel in technology. Whether you're a student looking to improve your skills or a business seeking to upskill your workforce, we provide personalized learning experiences."
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Astro and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
-    button:
-      enable: false
-      label: "Get Started Now"
-      link: "#"
-
-  - title: "Discover the Key Features Of Astro"
-    image: "/images/service-2.png"
-    content: "Astro is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-    bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+      - "**One-on-one tutoring** for students and professionals"
+      - "**Corporate training programs** tailored to your business needs"
+      - "**Technology workshops** covering the latest tools and frameworks"
+      - "**Certification preparation** for industry-recognized credentials"
+      - "**Flexible scheduling** to accommodate your busy lifestyle"
+      - "**Expert instructors** with real-world industry experience"
     button:
       enable: true
-      label: "Get Started Now"
-      link: "https://github.com/zeon-studio/astroplate"
+      label: "Learn More"
+      link: "/contact"
 
-  - title: "The Top Reasons to Choose Astro for Your Next Project"
-    image: "/images/service-3.png"
-    content: "With Astro, you can build modern and content-focused websites without sacrificing performance or ease of use."
+  - title: "Network & Security Solutions"
+    image: "/images/service-2.svg"
+    content: "From network installations to comprehensive security systems, BBTek ensures your infrastructure is robust, secure, and optimized for performance. We design and implement solutions that protect your business while enabling growth."
     bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Astro a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
-      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
+      - "**Network design and installation** for businesses of all sizes"
+      - "**Security system integration** including surveillance and access control"
+      - "**Network troubleshooting and maintenance** to keep you running smoothly"
+      - "**Cybersecurity assessments** to identify and address vulnerabilities"
+      - "**24/7 monitoring and support** for critical infrastructure"
+      - "**Scalable solutions** that grow with your business"
     button:
-      enable: false
-      label: ""
-      link: ""
+      enable: true
+      label: "Get Started"
+      link: "/contact"
+
+  - title: "Custom Development Services"
+    image: "/images/service-3.svg"
+    content: "BBTek delivers cutting-edge software development solutions tailored to your unique requirements. From web applications to enterprise systems, we build scalable, maintainable, and high-performance solutions that drive your business forward."
+    bulletpoints:
+      - "**Web application development** using modern frameworks and technologies"
+      - "**Custom software solutions** designed for your specific needs"
+      - "**API development and integration** to connect your systems"
+      - "**Database design and optimization** for peak performance"
+      - "**Mobile app development** for iOS and Android platforms"
+      - "**Ongoing maintenance and support** to keep your systems current"
+    button:
+      enable: true
+      label: "Start Your Project"
+      link: "/contact"
 ---
