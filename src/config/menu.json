@@ -2,46 +2,27 @@
   "main": [
     {
       "name": "Home",
-      "url": "/"
+      "url": "/#hero"
     },
     {
-      "name": "About",
-      "url": "/about"
+      "name": "Features",
+      "url": "/#features"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Testimonials",
+      "url": "/#testimonials"
     },
     {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Contact",
-          "url": "/contact"
-        },
-        {
-          "name": "Blog",
-          "url": "/blog"
-        },
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "404 Page",
-          "url": "/404"
-        }
-      ]
+      "name": "Benefits",
+      "url": "/#benefits"
+    },
+    {
+      "name": "Projects",
+      "url": "/#projects"
+    },
+    {
+      "name": "Contact",
+      "url": "/#contact"
     }
   ],
   "footer": [

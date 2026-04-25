@@ -2,6 +2,31 @@
   @apply bg-linear-to-b from-[rgba(249,249,249,1)] from-[0.53%] to-white to-[83.28%] dark:from-darkmode-light dark:to-darkmode-body;
 }
 
+/* Icon styles */
+.icon-folder::before {
+  content: "📁";
+}
+
+.icon-calendar::before {
+  content: "📅";
+}
+
+.icon-user::before {
+  content: "👤";
+}
+
+.icon-clock::before {
+  content: "🕐";
+}
+
+.icon-check::before {
+  content: "✓";
+}
+
+.icon-search::before {
+  content: "🔍";
+}
+
 /* form style */
 @utility form-input {
   @apply w-full rounded border-transparent bg-light px-6 py-4 text-text-dark placeholder:text-text-light focus:border-primary dark:focus:border-darkmode-primary focus:ring-transparent dark:border-darkmode-border dark:bg-darkmode-light dark:text-darkmode-text-light;

@@ -1,5 +1,11 @@
 html {
   @apply text-base-sm md:text-base;
+  scroll-behavior: smooth;
+}
+
+/* Offset scroll position for sticky navigation */
+section[id] {
+  scroll-margin-top: 6rem; /* 96px - accounts for header height + some buffer */
 }
 
 body {

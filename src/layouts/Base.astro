@@ -47,7 +47,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <!-- google tag manager -->
     {
@@ -190,9 +190,9 @@ const { title, meta_title, description, image, noindex, canonical } =
     }
 
     <TwSizeIndicator />
-    <Announcement client:load />
+    <Announcement client:idle />
     <Header />
-    <SearchModal client:load />
+    <SearchModal client:idle />
     <main id="main-content">
       <slot />
     </main>
