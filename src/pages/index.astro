@@ -1,7 +1,7 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import { getListPage } from "@/lib/contentParser.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import Testimonial from "@/partials/Testimonial.astro";
@@ -11,6 +11,12 @@ const call_to_action = await getListPage("ctaSection", "call-to-action");
 const testimonial = await getListPage("testimonialSection", "testimonial");
 
 const { banner, features, social_proof, benefits, projects } = homepage.data;
+
+const allProjects = await getSinglePage("projects");
+const featuredProjects = allProjects
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
 ---
 
 <Base>
@@ -136,7 +142,7 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
   <!-- /Benefits -->
 
   <!-- Projects -->
-  {projects && (
+  {projects && featuredProjects.length > 0 && (
     <section id="projects" class="section py-20 bg-gray-50 dark:bg-darkmode-light">
       <div class="container">
         <div class="text-center mb-12">
@@ -144,30 +150,32 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
           <p class="text-xl text-gray-600 dark:text-darkmode-text">{projects.subtitle}</p>
         </div>
         <div class="row">
-          {projects.items.map((project) => (
+          {featuredProjects.map((project) => (
             <div class="md:col-6 lg:col-4 mb-8">
-              <div class="bg-white dark:bg-darkmode-body rounded-xl shadow-sm border border-gray-100 dark:border-darkmode-border overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
+              <div class="bg-white dark:bg-darkmode-body rounded-xl shadow-sm border border-gray-100 dark:border-darkmode-border overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
                 <div class="aspect-video bg-gray-200 dark:bg-darkmode-body relative overflow-hidden">
-                  <ImageMod
-                    src={project.image}
-                    height={240}
-                    width={400}
-                    alt={project.title}
-                    format="webp"
-                    class="w-full h-full object-cover"
-                  />
+                  {project.data.image && (
+                    <ImageMod
+                      src={project.data.image}
+                      height={240}
+                      width={400}
+                      alt={project.data.title}
+                      format="webp"
+                      class="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
-                <div class="p-6">
+                <div class="p-6 flex flex-col flex-1">
                   <div class="flex flex-wrap gap-2 mb-3">
-                    {project.categories.map((category) => (
+                    {project.data.categories.map((category) => (
                       <span class="px-2 py-1 bg-blue-100 dark:bg-darkmode-border text-blue-800 dark:text-darkmode-primary text-xs font-medium rounded-full">
                         {category}
                       </span>
                     ))}
                   </div>
-                  <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-darkmode-text-dark">{project.title}</h3>
-                  <p class="text-gray-600 dark:text-darkmode-text mb-4 leading-relaxed">{project.description}</p>
-                  <a href={project.link} class="text-blue-600 dark:text-darkmode-primary font-medium hover:text-blue-800 dark:hover:text-darkmode-dark transition-colors">
+                  <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-darkmode-text-dark">{project.data.title}</h3>
+                  <p class="text-gray-600 dark:text-darkmode-text mb-4 leading-relaxed flex-1">{project.data.description}</p>
+                  <a href={`/projects/${project.id}`} class="text-blue-600 dark:text-darkmode-primary font-medium hover:text-blue-800 dark:hover:text-darkmode-dark transition-colors">
                     View Details →
                   </a>
                 </div>
@@ -175,7 +183,10 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
             </div>
           ))}
         </div>
-        <div class="text-center mt-12">
+        <div class="text-center mt-12 flex flex-wrap gap-4 justify-center">
+          <a href="/projects" class="btn btn-outline-primary px-8 py-3 text-lg font-semibold">
+            View All Projects
+          </a>
           <a href="/contact" class="btn btn-primary px-8 py-3 text-lg font-semibold">
             Start Your Project
           </a>
