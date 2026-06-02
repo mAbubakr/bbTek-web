@@ -1,0 +1,64 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import Pagination from "@/components/Pagination.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { getListPage, getSinglePage } from "@/lib/contentParser.astro";
+import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import PageHeader from "@/partials/PageHeader.astro";
+import PostSidebar from "@/partials/PostSidebar.astro";
+
+const PROJECTS_FOLDER = "projects";
+
+const projectIndex = await getListPage(PROJECTS_FOLDER, "-index");
+if (projectIndex.data.draft) {
+  return Astro.redirect("/404");
+}
+const projects = await getSinglePage(PROJECTS_FOLDER);
+const allCategories = await getAllTaxonomy(PROJECTS_FOLDER, "categories");
+const categories = await getTaxonomy(PROJECTS_FOLDER, "categories");
+const tags = await getTaxonomy(PROJECTS_FOLDER, "tags");
+const sortedProjects = sortByDate(projects);
+const totalPages: number = Math.ceil(projects.length / config.settings.pagination);
+const currentProjects = sortedProjects.slice(0, config.settings.pagination);
+---
+
+<Base
+  title={projectIndex.data.title}
+  meta_title={projectIndex.data.meta_title}
+  image={projectIndex.data.image}
+  description={projectIndex.data.description}
+>
+  <PageHeader title={projectIndex?.data.title} />
+  <section class="section">
+    <div class="container">
+      <div class="row gx-5">
+        <!-- projects -->
+        <div class="lg:col-8">
+          <div class="row">
+            {
+              currentProjects.map((project) => (
+                <div class="mb-14 md:col-6">
+                  <ProjectCard data={project} />
+                </div>
+              ))
+            }
+          </div>
+          <Pagination
+            section={PROJECTS_FOLDER}
+            currentPage={1}
+            totalPages={totalPages}
+          />
+        </div>
+
+        <!-- sidebar -->
+        <PostSidebar
+          categories={categories}
+          tags={tags}
+          allCategories={allCategories}
+        />
+      </div>
+    </div>
+  </section>
+</Base>

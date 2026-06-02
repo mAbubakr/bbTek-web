@@ -3,7 +3,6 @@ import Logo from "@/components/Logo.astro";
 import ThemeSwitcher from "@/components/ThemeSwitcher.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
-import { IoSearch } from "react-icons/io5";
 
 export interface ChildNavigationLink {
   name: string;
@@ -131,11 +130,15 @@ const { pathname } = Astro.url;
             aria-label="search"
             data-search-trigger
           >
-            <IoSearch />
+            <span class="icon-search"></span>
           </button>
         )
       }
-      <ThemeSwitcher className="mr-5" />
+      {
+        settings.theme_switcher && (
+          <ThemeSwitcher className="mr-5" />
+        )
+      }
       {
         navigation_button.enable && (
           <a

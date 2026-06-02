@@ -26,6 +26,21 @@ const blogCollection = defineCollection({
   }),
 });
 
+// Projects collection schema
+const projectsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/projects" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    date: z.date().optional(),
+    image: z.string().optional(),
+    categories: z.array(z.string()).default(["others"]),
+    tags: z.array(z.string()).default(["others"]),
+    draft: z.boolean().optional(),
+  }),
+});
+
 // Author collection schema
 const authorsCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/authors" }),
@@ -87,9 +102,8 @@ const homepageCollection = defineCollection({
     features: z.array(
       z.object({
         title: z.string(),
-        image: z.string(),
+        icon: z.string(),
         content: z.string(),
-        bulletpoints: z.array(z.string()),
         button: z.object({
           enable: z.boolean(),
           label: z.string(),
@@ -97,6 +111,41 @@ const homepageCollection = defineCollection({
         }),
       }),
     ),
+    social_proof: z.object({
+      title: z.string(),
+      count: z.string(),
+      label: z.string(),
+      testimonials: z.array(
+        z.object({
+          content: z.string(),
+          author: z.string(),
+          role: z.string(),
+        }),
+      ),
+    }).optional(),
+    benefits: z.object({
+      title: z.string(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string(),
+        }),
+      ),
+    }).optional(),
+    projects: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          image: z.string(),
+          categories: z.array(z.string()),
+          link: z.string(),
+        }),
+      ),
+    }).optional(),
   }),
 });
 
@@ -145,6 +194,7 @@ export const collections = {
   // Pages
   homepage: homepageCollection,
   blog: blogCollection,
+  projects: projectsCollection,
   authors: authorsCollection,
   pages: pagesCollection,
   about: aboutCollection,

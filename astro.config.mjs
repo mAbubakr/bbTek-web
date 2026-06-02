@@ -6,7 +6,6 @@ import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
-import sharp from "sharp";
 import config from "./src/config/config.json";
 
 // https://astro.build/config
@@ -14,8 +13,19 @@ export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
-  image: { service: sharp() },
-  vite: { plugins: [tailwindcss()] },
+  // Using passthrough image service for Cloudflare Pages deployment
+  // This avoids requiring Sharp which is not compatible with Cloudflare Workers runtime
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/noop",
+    },
+  },
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      dedupe: ["react", "react-dom", "react-dom/server"],
+    },
+  },
   integrations: [
     react(),
     sitemap(),

@@ -11,7 +11,6 @@ import {
   GoogleTagmanagerNoscript,
 } from "@digi4care/astro-google-tagmanager";
 import { AstroFont } from "astro-font";
-import { ClientRouter } from "astro:transitions";
 import Announcement from "./helpers/Announcement";
 import SearchModal from "./helpers/SearchModal";
 
@@ -47,7 +46,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <!-- google tag manager -->
     {
@@ -122,8 +121,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <ClientRouter />
-
     <!-- author from config.json -->
     <meta name="author" content={config.metadata.meta_author} />
 
@@ -190,9 +187,9 @@ const { title, meta_title, description, image, noindex, canonical } =
     }
 
     <TwSizeIndicator />
-    <Announcement client:load />
+    {config.announcement.enable && <Announcement client:idle />}
     <Header />
-    <SearchModal client:load />
+    {config.settings.search && <SearchModal client:idle />}
     <main id="main-content">
       <slot />
     </main>

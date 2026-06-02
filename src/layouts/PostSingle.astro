@@ -7,7 +7,6 @@ import dateFormat from "@/lib/utils/dateFormat";
 import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
-import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./components/ImageMod.astro";
 
 const COLLECTION_FOLDER = "blog";
@@ -41,12 +40,12 @@ const { title, description, author, categories, image, date, tags } = post.data;
         <ul class="mb-4">
           <li class="mr-4 inline-block">
             <a href={`/authors/${slugify(author)}`}>
-              <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+              <span class="icon-user mr-2 -mt-1 inline-block"></span>
               {humanize(author)}
             </a>
           </li>
           <li class="mr-4 inline-block">
-            <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+            <span class="icon-folder mr-2 -mt-1 inline-block"></span>
             {
               categories.map((category: string, index: number) => (
                 <a href={`/categories/${slugify(category)}`}>
@@ -57,7 +56,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
             }
           </li>
           <li class="mr-4 inline-block">
-            <FaRegClock className={"mr-2 -mt-1 inline-block"} />
+            <span class="icon-clock mr-2 -mt-1 inline-block"></span>
             {dateFormat(date)}
           </li>
         </ul>
@@ -92,7 +91,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
             />
           </div>
         </div>
-        <Disqus className="mt-20" client:load />
+        <Disqus className="mt-20" client:idle />
       </article>
     </div>
 
