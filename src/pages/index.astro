@@ -15,51 +15,49 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
 
 <Base>
   <!-- Hero Section -->
-  <section id="hero" class="section pt-20 pb-16 bg-gradient-to-br from-blue-50 to-white">
-    <div class="container">
+  <section
+    id="hero"
+    class="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+  >
+    {/* Background image */}
+    {banner.image && (
+      <div class="absolute inset-0 z-0">
+        <ImageMod
+          src={banner.image}
+          height={1080}
+          width={1920}
+          alt=""
+          format="webp"
+          class="w-full h-full object-cover object-center"
+        />
+        {/* Dark overlay so text is legible */}
+        <div class="absolute inset-0 bg-black/60"></div>
+      </div>
+    )}
+
+    {/* Content */}
+    <div class="container relative z-10 py-32">
       <div class="row justify-center">
         <div class="lg:col-8 md:col-10 text-center">
           <h1
             set:html={markdownify(banner.title)}
-            class="mb-6 text-4xl lg:text-6xl font-bold text-gray-900 leading-tight"
+            class="mb-6 text-5xl lg:text-7xl font-bold text-white leading-tight"
           />
-          <p set:html={markdownify(banner.content)} class="mb-8 text-xl text-gray-600 max-w-3xl mx-auto" />
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              class="px-6 py-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-w-80"
-            />
-            {
-              banner.button.enable && (
-                <a
-                  class="btn btn-primary px-8 py-3 text-lg font-semibold"
-                  href={banner.button.link}
-                  target={
-                    banner.button.link.startsWith("http") ? "_blank" : "_self"
-                  }
-                  rel="noopener"
-                >
-                  {banner.button.label}
-                </a>
-              )
-            }
-          </div>
+          <p
+            set:html={markdownify(banner.content)}
+            class="mb-10 text-xl text-white/80 max-w-2xl mx-auto leading-relaxed"
+          />
+          {banner.button.enable && (
+            <a
+              class="btn btn-primary px-10 py-4 text-lg font-semibold shadow-lg"
+              href={banner.button.link}
+              target={banner.button.link.startsWith("http") ? "_blank" : "_self"}
+              rel="noopener"
+            >
+              {banner.button.label}
+            </a>
+          )}
         </div>
-        {
-          banner.image && (
-            <div class="col-12 mt-8">
-              <ImageMod
-                src={banner.image}
-                height={400}
-                width={1200}
-                alt="banner"
-                format="webp"
-                class="rounded-lg shadow-lg"
-              />
-            </div>
-          )
-        }
       </div>
     </div>
   </section>
@@ -71,12 +69,12 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
       <div class="row">
         {features.map((feature) => (
           <div class="md:col-6 lg:col-3 mb-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 h-full">
+            <div class="bg-white dark:bg-darkmode-light p-8 rounded-xl shadow-sm border border-gray-100 dark:border-darkmode-border hover:shadow-md transition-shadow duration-300 h-full">
               <div class="text-4xl mb-4">{feature.icon}</div>
-              <h3 class="text-xl font-semibold mb-3 text-gray-900">{feature.title}</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">{feature.content}</p>
+              <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-darkmode-text-dark">{feature.title}</h3>
+              <p class="text-gray-600 dark:text-darkmode-text mb-6 leading-relaxed">{feature.content}</p>
               {feature.button.enable && (
-                <a class="text-blue-600 font-medium hover:text-blue-700 transition-colors" href={feature.button.link}>
+                <a class="text-blue-600 dark:text-darkmode-primary font-medium hover:text-blue-800 dark:hover:text-darkmode-dark transition-colors" href={feature.button.link}>
                   {feature.button.label} →
                 </a>
               )}
@@ -90,21 +88,21 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
 
   <!-- Social Proof -->
   {social_proof && (
-    <section id="testimonials" class="section py-16 bg-gray-50">
+    <section id="testimonials" class="section py-16 bg-gray-50 dark:bg-darkmode-light">
       <div class="container">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">{social_proof.title}</h2>
-          <div class="text-6xl font-bold text-blue-600 mb-2">{social_proof.count}</div>
-          <div class="text-xl text-gray-600">{social_proof.label}</div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-darkmode-text-dark mb-4">{social_proof.title}</h2>
+          <div class="text-6xl font-bold text-blue-600 dark:text-darkmode-primary mb-2">{social_proof.count}</div>
+          <div class="text-xl text-gray-600 dark:text-darkmode-text">{social_proof.label}</div>
         </div>
         <div class="row">
           {social_proof.testimonials.map((testimonial) => (
             <div class="md:col-4 mb-8">
-              <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <div class="bg-white dark:bg-darkmode-body p-6 rounded-lg shadow-sm border border-gray-100 dark:border-darkmode-border">
                 <div class="text-yellow-400 text-xl mb-3">★★★★★</div>
-                <p class="text-gray-700 mb-4 italic">"{testimonial.content}"</p>
-                <div class="font-semibold text-gray-900">{testimonial.author}</div>
-                <div class="text-sm text-gray-600">{testimonial.role}</div>
+                <p class="text-gray-700 dark:text-darkmode-text mb-4 italic">"{testimonial.content}"</p>
+                <div class="font-semibold text-gray-900 dark:text-darkmode-text-dark">{testimonial.author}</div>
+                <div class="text-sm text-gray-600 dark:text-darkmode-text">{testimonial.role}</div>
               </div>
             </div>
           ))}
@@ -119,15 +117,15 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
     <section id="benefits" class="section py-20">
       <div class="container">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">{benefits.title}</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-darkmode-text-dark mb-4">{benefits.title}</h2>
         </div>
         <div class="row">
           {benefits.items.map((benefit) => (
             <div class="md:col-6 lg:col-4 mb-8">
               <div class="text-center">
                 <div class="text-5xl mb-4">{benefit.icon}</div>
-                <h3 class="text-xl font-semibold mb-3 text-gray-900">{benefit.title}</h3>
-                <p class="text-gray-600 leading-relaxed">{benefit.description}</p>
+                <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-darkmode-text-dark">{benefit.title}</h3>
+                <p class="text-gray-600 dark:text-darkmode-text leading-relaxed">{benefit.description}</p>
               </div>
             </div>
           ))}
@@ -139,17 +137,17 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
 
   <!-- Projects -->
   {projects && (
-    <section id="projects" class="section py-20 bg-gray-50">
+    <section id="projects" class="section py-20 bg-gray-50 dark:bg-darkmode-light">
       <div class="container">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">{projects.title}</h2>
-          <p class="text-xl text-gray-600">{projects.subtitle}</p>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-darkmode-text-dark mb-4">{projects.title}</h2>
+          <p class="text-xl text-gray-600 dark:text-darkmode-text">{projects.subtitle}</p>
         </div>
         <div class="row">
-          {projects.items.map((project, index) => (
+          {projects.items.map((project) => (
             <div class="md:col-6 lg:col-4 mb-8">
-              <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
-                <div class="aspect-video bg-gray-200 relative overflow-hidden">
+              <div class="bg-white dark:bg-darkmode-body rounded-xl shadow-sm border border-gray-100 dark:border-darkmode-border overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full">
+                <div class="aspect-video bg-gray-200 dark:bg-darkmode-body relative overflow-hidden">
                   <ImageMod
                     src={project.image}
                     height={240}
@@ -162,14 +160,14 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
                 <div class="p-6">
                   <div class="flex flex-wrap gap-2 mb-3">
                     {project.categories.map((category) => (
-                      <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+                      <span class="px-2 py-1 bg-blue-100 dark:bg-darkmode-border text-blue-800 dark:text-darkmode-primary text-xs font-medium rounded-full">
                         {category}
                       </span>
                     ))}
                   </div>
-                  <h3 class="text-xl font-semibold mb-3 text-gray-900">{project.title}</h3>
-                  <p class="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
-                  <a href={project.link} class="text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                  <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-darkmode-text-dark">{project.title}</h3>
+                  <p class="text-gray-600 dark:text-darkmode-text mb-4 leading-relaxed">{project.description}</p>
+                  <a href={project.link} class="text-blue-600 dark:text-darkmode-primary font-medium hover:text-blue-800 dark:hover:text-darkmode-dark transition-colors">
                     View Details →
                   </a>
                 </div>
@@ -178,7 +176,7 @@ const { banner, features, social_proof, benefits, projects } = homepage.data;
           ))}
         </div>
         <div class="text-center mt-12">
-          <a href="#contact" class="btn btn-primary px-8 py-3 text-lg font-semibold">
+          <a href="/contact" class="btn btn-primary px-8 py-3 text-lg font-semibold">
             Start Your Project
           </a>
         </div>

@@ -22,13 +22,17 @@
     },
     {
       "name": "Contact",
-      "url": "/#contact"
+      "url": "/contact"
     }
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
     },
     {
       "name": "Privacy Policy",

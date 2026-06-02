@@ -1,105 +1,105 @@
 ---
 # Banner
 banner:
-  title: "Power up your tech skills with BBTek"
-  content: "Your trusted partner for comprehensive technical solutions. Get expert tutoring, professional training, network installations, and custom development services."
+  title: "BBTek"
+  content: "Technical solutions for your home and business — security systems, audio & video, custom software, and hands-on coding tutoring. Real expertise, local service."
   image: "/images/banner.png"
   button:
     enable: true
-    label: "Get Started"
+    label: "Get in Touch"
     link: "/contact"
 
 # Features
 features:
-  - title: "Expert Tutoring"
-    content: "One-on-one technical tutoring for students and professionals looking to advance their careers."
-    icon: "🎓"
+  - title: "Security Systems"
+    content: "Professional installation of cameras, alarms, and access control for homes and businesses. Sleep easy knowing your property is protected."
+    icon: "🔐"
     button:
       enable: true
       label: "Learn More"
       link: "/contact"
 
-  - title: "Corporate Training"
-    content: "Tailored training programs to upskill your workforce with the latest technologies."
-    icon: "🏢"
+  - title: "Audio & Video"
+    content: "Custom home theatre setups, whole-home audio, TV mounting, and commercial A/V installations designed for any budget."
+    icon: "📺"
     button:
       enable: true
-      label: "Get Started"
+      label: "Get a Quote"
       link: "/contact"
 
-  - title: "Network Solutions"
-    content: "Complete network design, installation, and security systems for businesses."
-    icon: "🌐"
-    button:
-      enable: true
-      label: "Contact Us"
-      link: "/contact"
-
-  - title: "Custom Development"
-    content: "Full-stack web and mobile application development with modern technologies."
+  - title: "Custom Software"
+    content: "Need a website, web app, or mobile app? I build clean, modern software tailored to your exact requirements."
     icon: "💻"
     button:
       enable: true
-      label: "Start Project"
+      label: "Start a Project"
+      link: "/contact"
+
+  - title: "Coding Tutoring"
+    content: "One-on-one tutoring for beginners through advanced developers. Learn at your own pace — Python, JavaScript, web development, and more."
+    icon: "🎓"
+    button:
+      enable: true
+      label: "Book a Session"
       link: "/contact"
 
 # Social Proof
 social_proof:
-  title: "Trusted by professionals worldwide"
-  count: "500+"
-  label: "Happy Clients"
+  title: "Clients who count on BBTek"
+  count: "50+"
+  label: "Projects Completed"
   testimonials:
-    - content: "BBTek transformed our team's technical capabilities. Their training programs are exceptional."
-      author: "Sarah Johnson"
-      role: "CTO, TechCorp"
-    - content: "Outstanding network solutions and 24/7 support. Highly recommend their services."
-      author: "Mike Chen"
-      role: "IT Director, InnovateLabs"
-    - content: "Their custom development work exceeded our expectations. Professional and reliable."
-      author: "Emma Davis"
-      role: "Founder, StartupXYZ"
+    - content: "Abubakr set up our entire security system and it was a seamless experience from start to finish. Professional, fast, and the cameras are crystal clear."
+      author: "James R."
+      role: "Homeowner"
+    - content: "He built our small business website and walked us through the whole process. Affordable, responsive, and the final product looks fantastic."
+      author: "Priya S."
+      role: "Small Business Owner"
+    - content: "I went from knowing nothing about coding to landing my first dev job. The tutoring sessions were incredibly well-structured and patient."
+      author: "Tyler M."
+      role: "Junior Developer"
 
 # Benefits
 benefits:
   title: "Why choose BBTek?"
   items:
-    - title: "Expert Instructors"
-      description: "Learn from industry professionals with years of real-world experience"
-      icon: "👨‍🏫"
-    - title: "24/7 Support"
-      description: "Get help whenever you need it with our round-the-clock technical support"
-      icon: "🕒"
-    - title: "Flexible Learning"
-      description: "Study at your own pace with flexible scheduling and online resources"
-      icon: "📚"
-    - title: "Hands-on Projects"
-      description: "Apply your skills with real-world projects and practical exercises"
+    - title: "One Point of Contact"
+      description: "No juggling multiple contractors — I handle security, A/V, software, and tutoring under one roof"
+      icon: "🤝"
+    - title: "Transparent Pricing"
+      description: "Straightforward quotes with no hidden fees. You know exactly what you're paying for"
+      icon: "💰"
+    - title: "Personalized Service"
+      description: "Every home and business is different. Solutions are scoped and built around your specific needs"
+      icon: "🎯"
+    - title: "Hands-On Expertise"
+      description: "Years of real-world experience in software development, networking, and security systems"
       icon: "🔧"
-    - title: "Certification Prep"
-      description: "Prepare for industry-recognized certifications with our expert guidance"
-      icon: "🏆"
-    - title: "Ongoing Maintenance"
-      description: "Keep your systems updated and secure with our maintenance services"
+    - title: "Fast Turnaround"
+      description: "Responsive communication and efficient delivery — your time matters"
+      icon: "⚡"
+    - title: "Ongoing Support"
+      description: "I don't disappear after the job is done. Maintenance, updates, and follow-up are part of the service"
       icon: "🔒"
 
 # Projects
 projects:
-  title: "Featured Projects"
-  subtitle: "See our work in action"
+  title: "Recent Work"
+  subtitle: "A sample of what BBTek has delivered"
   items:
-    - title: "Corporate Training Program for Tech Startup"
-      description: "Comprehensive training program for a 50-person tech startup covering modern development practices, DevOps, and cloud technologies."
+    - title: "Home Security & Camera Installation"
+      description: "Full exterior and interior security camera system with remote monitoring for a residential client, including alarm integration and mobile app setup."
       image: "/images/project-1.png"
-      categories: ["Education", "Training", "Corporate"]
-      link: "#project-1"
-    - title: "E-commerce Platform Development"
-      description: "Built a scalable e-commerce platform handling 10,000+ daily transactions with advanced analytics and payment processing."
+      categories: ["Security", "Home"]
+      link: "/contact"
+    - title: "Small Business Website"
+      description: "Designed and built a modern, mobile-friendly website for a local service business — complete with booking forms, SEO optimization, and a CMS for easy updates."
       image: "/images/project-2.png"
-      categories: ["Development", "E-commerce", "Analytics"]
-      link: "#project-2"
-    - title: "Enterprise Network Security"
-      description: "Implemented comprehensive security solutions for a 500-employee enterprise including firewall management and intrusion detection."
+      categories: ["Web Development", "Business"]
+      link: "/contact"
+    - title: "Home Theatre & Whole-Home Audio"
+      description: "Custom home theatre room installation with 4K projector, surround sound, and whole-home audio system controlled from a single app."
       image: "/images/project-3.png"
-      categories: ["Security", "Network", "Enterprise"]
-      link: "#project-3"
+      categories: ["Audio/Video", "Home"]
+      link: "/contact"
 ---

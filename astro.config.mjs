@@ -20,7 +20,12 @@ export default defineConfig({
       entrypoint: "astro/assets/services/noop",
     },
   },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      dedupe: ["react", "react-dom", "react-dom/server"],
+    },
+  },
   integrations: [
     react(),
     sitemap(),
